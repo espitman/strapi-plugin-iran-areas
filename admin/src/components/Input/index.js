@@ -71,13 +71,11 @@ const Input = ({
         }}
         disabled={disabled}
       >
-        {provinces
-          .sort((a, b) => (a.slug > b.slug ? 1 : -1))
-          .map((p) => (
-            <SingleSelectOption key={`province-${p.id}`} value={p.slug}>
-              {p.slug}
-            </SingleSelectOption>
-          ))}
+        {provinces.map((p) => (
+          <SingleSelectOption key={`province-${p.id}`} value={p.slug}>
+            {p.slug}
+          </SingleSelectOption>
+        ))}
       </SingleSelect>
       <br />
       <SingleSelect
@@ -101,13 +99,11 @@ const Input = ({
         }}
         disabled={disabled}
       >
-        {filter(cities, { province_id: selectedProvince })
-          .sort((a, b) => (a.slug > b.slug ? 1 : -1))
-          .map((c) => (
-            <SingleSelectOption key={`city-${c.id}`} value={c.slug}>
-              {c.slug}
-            </SingleSelectOption>
-          ))}
+        {filter(cities, { province_id: selectedProvince }).map((c) => (
+          <SingleSelectOption key={`city-${c.id}`} value={c.slug}>
+            {c.slug}
+          </SingleSelectOption>
+        ))}
       </SingleSelect>
     </Stack>
   );
