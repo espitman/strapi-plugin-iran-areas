@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { findLast, filter } from "lodash";
+import { findLast, filter, sortBy } from "lodash";
 import {
   SingleSelect,
   SingleSelectOption,
@@ -71,7 +71,7 @@ const Input = ({
         }}
         disabled={disabled}
       >
-        {provinces.map((p) => (
+        {sortBy(provinces, "slug").map((p) => (
           <SingleSelectOption key={`province-${p.id}`} value={p.slug}>
             {p.slug}
           </SingleSelectOption>
@@ -99,11 +99,13 @@ const Input = ({
         }}
         disabled={disabled}
       >
-        {filter(cities, { province_id: selectedProvince }).map((c) => (
-          <SingleSelectOption key={`city-${c.id}`} value={c.slug}>
-            {c.slug}
-          </SingleSelectOption>
-        ))}
+        {sortBy(filter(cities, { province_id: selectedProvince }), "slug").map(
+          (c) => (
+            <SingleSelectOption key={`city-${c.id}`} value={c.slug}>
+              {c.slug}
+            </SingleSelectOption>
+          )
+        )}
       </SingleSelect>
     </Stack>
   );
