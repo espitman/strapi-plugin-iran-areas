@@ -1,5 +1,5 @@
 {
-  "name": "@strapi/plugin-iran-areas",
+  "name": "strapi-plugin-iran-areas",
   "version": "1.0.0",
   "description": "Iran select provinces and cities for Strapi",
   "strapi": {
