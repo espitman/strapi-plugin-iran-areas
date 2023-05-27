@@ -8,28 +8,6 @@ const name = pluginPkg.strapi.name;
 
 export default {
   register(app) {
-    // app.addMenuLink({
-    //   to: `/plugins/${pluginId}`,
-    //   icon: PluginIcon,
-    //   intlLabel: {
-    //     id: `${pluginId}.plugin.name`,
-    //     defaultMessage: name,
-    //   },
-    //   Component: async () => {
-    //     const component = await import(
-    //       /* webpackChunkName: "[request]" */ "./pages/App"
-    //     );
-
-    //     return component;
-    //   },
-    //   permissions: [
-    //     // Uncomment to set the permissions of the plugin here
-    //     // {
-    //     //   action: '', // the action name should be plugin::plugin-name.actionType
-    //     //   subject: null,
-    //     // },
-    //   ],
-    // });
     app.registerPlugin({
       id: pluginId,
       initializer: Initializer,
@@ -39,7 +17,7 @@ export default {
     app.customFields.register({
       name: "area",
       pluginId: "iran-areas", // the custom field is created by a iran-areas plugin
-      type: "string", // the area will be stored as a string
+      type: "json", // the area will be stored as a json
       intlLabel: {
         id: "iran-areas.area.label",
         defaultMessage: "area",
